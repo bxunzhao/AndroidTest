@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.liang.databinding.User"></variable>
+
+        <variable
+            name="presenter"
+            type="com.liang.databinding.UserActivity.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/et_name"
+            android:onTextChanged="@{presenter.onTextChanged}"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:onClick="@{presenter.onClick}"
+            android:text="@{user.firstName}" />
+
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:onClick="@{() -> presenter.setOnClick(user)}"
+            android:layout_height="wrap_content"
+            android:text="@{user.lastName}" />
+    </LinearLayout>
+</layout>
